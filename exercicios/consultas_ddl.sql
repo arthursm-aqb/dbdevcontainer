@@ -19,3 +19,9 @@ CREATE TABLE IF NOT EXISTS dbagconsultas.paciente(
     CONSTRAINT cpf_paciente_fk FOREIGN KEY (cpf_paciente) REFERENCES dbagconsultas.pessoa(cpf)
 );
 
+CREATE TABLE IF NOT EXISTS dbagconsultas.medico(
+    cpf_medico char(11) PRIMARY KEY,
+    crm varchar(10) UNIQUE NOT NULL,
+
+    CONSTRAINT cpf_medico_fk FOREIGN KEY(cpf_medico) REFERENCES dbagconsultas.pessoa(cpf) 
+);
