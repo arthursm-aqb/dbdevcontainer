@@ -27,12 +27,13 @@ CREATE TABLE IF NOT EXISTS dbagconsultas.medico(
 );
 
 CREATE TABLE IF NOT EXISTS dbagconsultas.agendamento(
-    cpf_paciente char(11) PRIMARY KEY,
-    cpf_medico char(11) PRIMARY KEY,
-    dh_consulta TIMESTAMP PRIMARY KEY,
+    cpf_paciente char(11),
+    cpf_medico char(11),
+    dh_consulta TIMESTAMP,
     dh_agendamento TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     valor_consulta float NOT NULL DEFAULT 0.0,
 
+    PRIMARY KEY (cpf_paciente, cpf_medico, dh_consulta),
     CONSTRAINT cpf_paciente_fk2 FOREIGN KEY(cpf_paciente) REFERENCES dbagconsultas.paciente(cpf_paciente),
     CONSTRAINT cpf_medico_fk2 FOREIGN KEY(cpf_medico) REFERENCES dbagconsultas.medico(cpf_medico)
 );
@@ -43,9 +44,10 @@ CREATE TABLE IF NOT EXISTS dbagconsultas.especialidade(
 );
 
 CREATE TABLE IF NOT EXISTS dbagconsultas.MedicoEspecialidade(
-    cpf_medico char(11) PRIMARY KEY,
-    id_especialidade int PRIMARY KEY,
+    cpf_medico char(11),
+    id_especialidade int,
 
+    PRIMARY KEY (cpf_medico, id_especialidade),
     CONSTRAINT cpf_medico_fk3 FOREIGN KEY(cpf_medico) REFERENCES dbagconsultas.medico(cpf_medico),
     CONSTRAINT id_especialidade_fk FOREIGN KEY(id_especialidade) REFERENCES dbagconsultas.especialidade(id)
 );
