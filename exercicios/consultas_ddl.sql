@@ -51,3 +51,6 @@ CREATE TABLE IF NOT EXISTS dbagconsultas.MedicoEspecialidade(
     CONSTRAINT cpf_medico_fk3 FOREIGN KEY(cpf_medico) REFERENCES dbagconsultas.medico(cpf_medico),
     CONSTRAINT id_especialidade_fk FOREIGN KEY(id_especialidade) REFERENCES dbagconsultas.especialidade(id)
 );
+
+
+
