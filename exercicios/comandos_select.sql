@@ -101,25 +101,6 @@ UPDATE dbagconsultas.MedicoEspecialidade
 SET id_especialidade = 1
 WHERE id_especialidade = 2 AND cpf_medico = '004';
 
-
-DELETE FROM dbagconsultas.agendamento -- Comando que remove tabela ou instâncias com base numa condição ou não
-WHERE DATE(dh_consulta) = '1783-05-19';
-
-DELETE FROM dbagconsultas.agendamento
-WHERE cpf_medico = '001' AND valor_consulta = 0.0;
-
-DELETE FROM dbagconsultas.paciente
-WHERE plano_saude = TRUE OR cpf_paciente IN(SELECT cpf FROM dbagconsultas.pessoa WHERE telefone IS NULL);
-
-DELETE FROM dbagconsultas.agendamento
-WHERE cpf_medico = '004';
-
-DELETE FROM dbagconsultas.MedicoEspecialidade
-WHERE cpf_medico = '004';
-
-DELETE FROM dbagconsultas.medico
-WHERE cpf_medico = '004';
-
 --------------------------------------------------------------------------------------------------------------------------------------
 
 
